@@ -3,11 +3,8 @@
 ✨ 基于 Python + PyExecJS 复现的翻译接口请求链路，
 用于学习 **token 获取、参数排序、JS 签名、流式响应解析** 等前端逆向思路。
 
-
 > ⚠️ 本项目仅作为个人爬虫 / 前端逆向技术学习 Demo，不包含批量采集逻辑，
-> 
 > 严禁用于商业用途或违规采集。所有凭证均为占位符。
-> 
 
 ## 🛠 技术栈
 
@@ -18,10 +15,7 @@
 | JS 执行 | PyExecJS |
 | 数据处理 | re、json |
 
-
 ---
-
-
 
 ## 📌 功能说明
 
@@ -30,8 +24,8 @@
 3. **JS 签名**：调用前端 JS 函数对参数串生成 `sign`
 4. **业务请求**：携带签名发起翻译请求
 5. **响应解析**：从 SSE / 分段 JSON 拼接串中提取 `content` 并反转义
-   ---
 
+---
 
 ## 🧩 技术要点
 
@@ -40,30 +34,45 @@
 - **时间戳校验**：时间戳参与签名，须与请求体保持一致
 - **签名 key**：前端 key 仅参与签名计算，不随请求体发送
 - **流式解析**：返回内容为多段 JSON 拼接串，需提取 content 反转义后合并
-  
 
 > 签名算法文件源码（`js.js`）不随仓库提供，请自行用浏览器 DevTools 定位学习。
->
-> 
+
+---
 
 ## 📂 项目结构
 
-.  
-.
-├── youdao_translate_demo.py # 主流程：token → 签名 → 请求 → 解析
-├── sign_demo.js             # 脱敏后的签名逻辑示意（参数拼接 + MD5）
-├── README.md
-├── .gitignore
-└── run.png                  # 运行效果截图
+    .
+    ├── youdao_translate_demo.py # 主流程：token → 签名 → 请求 → 解析
+    ├── sign_demo.js             # 脱敏后的签名逻辑示意（参数拼接 + MD5）
+    ├── README.md
+    ├── .gitignore
+    └── run.png                  # 运行效果截图
+
 ---
-
-
-
 
 ## 🚀 快速开始
 
-### 安装依赖
+### 1. 安装依赖
 
-```bash
-pip install requests PyExecJS
-```
+    pip install requests PyExecJS
+
+### 2. 配置说明
+
+运行前请确保已自行获取签名算法文件 `js.js`（该文件已被 `.gitignore` 忽略，不会随仓库上传），并在代码配置区填入你自己的 Cookie / Key 等占位符。
+
+### 3. 运行
+
+    python youdao_translate_demo.py -k hello
+
+---
+
+## 📷 运行截图
+
+![运行效果](./run.png)
+
+---
+
+## ⚠️ 声明
+
+本项目仅作为个人爬虫、前端逆向技术学习 Demo，**不包含任何批量采集逻辑**，
+所有 Cookie / key / sign 均为占位符。严禁用于商业用途或违规采集。
