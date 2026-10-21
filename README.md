@@ -30,7 +30,8 @@
 3. **JS 签名**：调用前端 JS 函数对参数串生成 `sign`
 4. **业务请求**：携带签名发起翻译请求
 5. **响应解析**：从 SSE / 分段 JSON 拼接串中提取 `content` 并反转义
-   ---
+   ---
+
 
 ## 🧩 技术要点
 
@@ -48,13 +49,14 @@
 ## 📂 项目结构
 
 .  
-├── youdao_translate_demo.py # 主流程：token → 签名 → 请求 → 解析  
-├── sign_demo.js # 脱敏后的签名逻辑示意（参数拼接 + MD5）  
-├── README.md  
-├── .gitignore  
-└── screenshot/  
-└── run.png # 运行效果截图
----
+.
+├── youdao_translate_demo.py # 主流程：token → 签名 → 请求 → 解析
+├── sign_demo.js             # 脱敏后的签名逻辑示意（参数拼接 + MD5）
+├── README.md
+├── .gitignore
+└── run.png                  # 运行效果截图
+---
+
 
 
 
